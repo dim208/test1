@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Surfing</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="frame1" src="https://adnade.net/ptp/?user=cohi2002&subid=9hits"></iframe>
+    <iframe id="frame2"></iframe>
+
+    <script>
+        const sites = [
+            "https://lltrco.com/?r=inknk7ytig7",
+            "https://lltrco.com/?r=godfree",
+            // Добавьте другие сайты для сёрфинга
+        ];
+
+        let currentIndex = 0;
+
+        function startSurfing() {
+            if (currentIndex >= sites.length) {
+                currentIndex = 0; // Начинаем заново, если достигли конца списка
+            }
+            document.getElementById('frame2').src = sites[currentIndex];
+            currentIndex++;
+            setTimeout(startSurfing, 10000); // Переходим на новый сайт каждые 10 секунд
+        }
+
+        startSurfing();
+    </script>
+</body>
+</html>
